@@ -44,10 +44,10 @@ function Register() {
               </form>
               <hr/>
               <div className="text-center">
-                <a className="small" href="/forgot/">Forgot Password?</a>
+                <a className="medium" href="/forgot/">Forgot Password?</a>
               </div>
               <div className="text-center">
-                <a className="small" href="/">Already have an account? Login!</a>
+                <a className="medium" href="/">Already have an account? Login!</a>
               </div>
             </div>
           </div>
