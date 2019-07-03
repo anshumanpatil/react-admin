@@ -40,10 +40,10 @@ function Login() {
                   </form>
                   <hr/>
                   <div className="text-center">
-                    <a className="medium" href="forgot-password.html">Forgot Password?</a>
+                    <a className="medium" href="/forgot/">Forgot Password?</a>
                   </div>
                   <div className="text-center">
-                    <a className="medium" href="register.html">Create an Account!</a>
+                    <a className="medium" href="/register/">Create an Account!</a>
                   </div>
                 </div>
               </div>
