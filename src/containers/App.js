@@ -5,12 +5,10 @@ import  Register  from '../components/register/Register'
 import  Login  from '../components/login/Login'
 import  Forgot  from '../components/forgot/Forgot'
 
-import './App.css';
-
 class App extends Component {
   render() {
     return (
-    <div className="App">
+    <div className="container">
     <Router>
       Initial
 

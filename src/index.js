@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './sb-admin-2.css';
+import $ from 'jquery';
 import App from './containers/App';
 import * as serviceWorker from './helpers/serviceWorker';
+
+window.jQuery = window.$ = $;
+window['jquery-easing'] = require('jquery.easing');
+require('bootstrap');
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
