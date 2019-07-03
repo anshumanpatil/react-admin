@@ -1,8 +1,7 @@
-import React from 'react';
-
-function Login() {
-  return (
-    <div className="row justify-content-center">
+import React, { PureComponent } from 'react';
+class Login extends PureComponent {
+  render() {
+    return (
       <div className="col-xl-10 col-lg-12 col-md-9">
         <div className="card o-hidden border-0 shadow-lg my-5">
           <div className="card-body p-0">
@@ -15,21 +14,21 @@ function Login() {
                   </div>
                   <form className="user">
                     <div className="form-group">
-                      <input type="email" className="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..."/>
+                      <input type="email" className="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." />
                     </div>
                     <div className="form-group">
-                      <input type="password" className="form-control form-control-user" id="exampleInputPassword" placeholder="Password"/>
+                      <input type="password" className="form-control form-control-user" id="exampleInputPassword" placeholder="Password" />
                     </div>
                     <div className="form-group">
                       <div className="custom-control custom-checkbox small">
-                        <input type="checkbox" className="custom-control-input" id="customCheck"/>
+                        <input type="checkbox" className="custom-control-input" id="customCheck" />
                         <label className="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
                     <a href="index.html" className="btn btn-primary btn-user btn-block">
                       Login
                     </a>
-                    
+
                     {/* <hr/>
                     <a href="index.html" className="btn btn-google btn-user btn-block">
                       <i className="fab fa-google fa-fw"></i> Login with Google
@@ -38,7 +37,7 @@ function Login() {
                       <i className="fab fa-facebook-f fa-fw"></i> Login with Facebook
                     </a> */}
                   </form>
-                  <hr/>
+                  <hr />
                   <div className="text-center">
                     <a className="medium" href="/forgot/">Forgot Password?</a>
                   </div>
@@ -51,8 +50,8 @@ function Login() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Login;

@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { PureComponent } from 'react';
 class Forgot extends PureComponent {
   render() {
     return (
@@ -38,7 +37,6 @@ class Forgot extends PureComponent {
         </div>
       </div>
     );
-
   }
 }
 
