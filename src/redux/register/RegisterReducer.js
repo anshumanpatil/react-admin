@@ -1,7 +1,7 @@
 import {
-  LOGIN_API_CALL_REQUEST,
-  LOGIN_API_CALL_SUCCESS,
-  LOGIN_API_CALL_FAILURE
+  REGISTER_API_CALL_REQUEST,
+  REGISTER_API_CALL_SUCCESS,
+  REGISTER_API_CALL_FAILURE
 } from './constants'
 
 
@@ -12,13 +12,13 @@ const initialState = {
   error: null
 };
 
-export function LoginReducer(state = initialState, action) {
+export function RegisterReducer(state = initialState, action) {
     switch (action.type) {
-      case LOGIN_API_CALL_REQUEST:
+      case REGISTER_API_CALL_REQUEST:
         return { ...state, fetching: true, error: null };
-      case LOGIN_API_CALL_SUCCESS:
+      case REGISTER_API_CALL_SUCCESS:
         return { ...state, fetching: false, dog: action.dog };
-      case LOGIN_API_CALL_FAILURE:
+      case REGISTER_API_CALL_FAILURE:
         return { ...state, fetching: false, dog: null, error: action.error };
       default:
         return state;

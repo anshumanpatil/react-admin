@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 class Login extends PureComponent {
 
   clickLogin = () => {
-    this.props.onRequestDog()
+    this.props.onRequestLogin()
   }
   render() {
-    const { fetching, dog, onRequestDog, error } = this.props;
+    const { fetching, dog, onRequestLogin, error } = this.props;
+    console.log("this.state", this.state)
+    console.log("this.props", this.props)
     return (
       <div className="col-xl-10 col-lg-12 col-md-9">
         <div className="card o-hidden border-0 shadow-lg my-5">
@@ -33,7 +35,7 @@ class Login extends PureComponent {
                         <label className="custom-control-label" htmlFor="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-primary btn-user btn-block" onClick={() => this.clickLogin()}>Login</button>
+                    <button type="button" className="btn btn-primary btn-user btn-block" onClick={() => this.clickLogin()}>Login</button>
                   </form>
                   <hr />
                   <div className="text-center">
@@ -53,16 +55,13 @@ class Login extends PureComponent {
 }
 
 const mapStateToProps = state => {
-  return {
-    fetching: state.fetching,
-    dog: state.dog,
-    error: state.error
-  };
+  return { ...state.login };
 };
 
 const mapDispatchToProps = dispatch => {
+  console.log("dispatch", dispatch)
   return {
-    onRequestDog: () => dispatch({ type: "API_CALL_REQUEST" })
+    onRequestLogin: () => dispatch({ type: "LOGIN_API_CALL_REQUEST" })
   };
 };
 
