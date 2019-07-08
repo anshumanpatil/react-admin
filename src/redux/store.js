@@ -1,6 +1,6 @@
 import createSagaMiddleware from "redux-saga";
-import { watcherSaga } from "./sagas";
-import { reducer } from "./redux";
+import { watcherSaga } from "./login/LoginSaga";
+import { reducer } from "./login/LoginReducer";
 import { createStore, applyMiddleware, compose } from "redux";
 
 
@@ -8,7 +8,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 let store = createStore(
     reducer,
-    compose(applyMiddleware(sagaMiddleware))
+        compose(applyMiddleware(sagaMiddleware))
     );
     
     

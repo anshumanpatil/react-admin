@@ -1,12 +1,20 @@
 import React, { PureComponent } from 'react';
+import { connect } from "react-redux";
 class Login extends PureComponent {
+
+  clickLogin = () => {
+    this.props.onRequestDog()
+  }
   render() {
+    const { fetching, dog, onRequestDog, error } = this.props;
     return (
       <div className="col-xl-10 col-lg-12 col-md-9">
         <div className="card o-hidden border-0 shadow-lg my-5">
           <div className="card-body p-0">
             <div className="row">
-              <div className="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div className="col-lg-6 d-none d-lg-block bg-login-image" style={{
+                background: `url("${this.props.dog || ""}")`
+              }}></div>
               <div className="col-lg-6">
                 <div className="p-5">
                   <div className="text-center">
@@ -25,17 +33,7 @@ class Login extends PureComponent {
                         <label className="custom-control-label" htmlFor="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <a href="index.html" className="btn btn-primary btn-user btn-block">
-                      Login
-                    </a>
-
-                    {/* <hr/>
-                    <a href="index.html" className="btn btn-google btn-user btn-block">
-                      <i className="fab fa-google fa-fw"></i> Login with Google
-                    </a>
-                    <a href="index.html" className="btn btn-facebook btn-user btn-block">
-                      <i className="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                    </a> */}
+                    <button type="button" class="btn btn-primary btn-user btn-block" onClick={() => this.clickLogin()}>Login</button>
                   </form>
                   <hr />
                   <div className="text-center">
@@ -54,4 +52,18 @@ class Login extends PureComponent {
   }
 }
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    fetching: state.fetching,
+    dog: state.dog,
+    error: state.error
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onRequestDog: () => dispatch({ type: "API_CALL_REQUEST" })
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
