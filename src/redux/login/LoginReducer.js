@@ -8,18 +8,18 @@ import {
 // reducer with initial state
 const initialState = {
   fetching: false,
-  dog: null,
+  success: false,
   error: null
 };
 
 export function LoginReducer(state = initialState, action) {
     switch (action.type) {
       case LOGIN_API_CALL_REQUEST:
-        return { ...state, fetching: true, error: null };
+        return { ...state, fetching: true, error: null, data: action.data };
       case LOGIN_API_CALL_SUCCESS:
-        return { ...state, fetching: false, dog: action.dog };
+        return { ...state, fetching: false, success: action.success };
       case LOGIN_API_CALL_FAILURE:
-        return { ...state, fetching: false, dog: null, error: action.error };
+        return { ...state, fetching: false, success: false, error: action.error };
       default:
         return state;
     }

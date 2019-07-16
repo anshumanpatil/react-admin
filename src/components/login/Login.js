@@ -2,20 +2,41 @@ import React, { PureComponent } from 'react';
 import { connect } from "react-redux";
 class Login extends PureComponent {
 
-  clickLogin = () => {
-    this.props.onRequestLogin()
+  constructor(props) {
+    super(props);
+    this.updateEmail = this.updateEmail.bind(this);
+    this.updatePassword = this.updatePassword.bind(this);
+
+    this.state = {
+      email: '',
+      password: ''
+    }
   }
+
+  updateEmail(event) {
+    this.setState({ email: event.target.value })
+  }
+
+  updatePassword(event) {
+    this.setState({ password: event.target.value })
+  }
+
+  clickLogin = () => {
+    this.props.onRequestLogin(this.state);
+  }
+
   render() {
-    const { fetching, dog, onRequestLogin, error } = this.props;
-    console.log("this.state", this.state)
-    console.log("this.props", this.props)
+    const { fetching, success, onRequestLogin, error } = this.props;
+    // if(success){
+
+    // }
     return (
       <div className="col-xl-10 col-lg-12 col-md-9">
         <div className="card o-hidden border-0 shadow-lg my-5">
           <div className="card-body p-0">
             <div className="row">
               <div className="col-lg-6 d-none d-lg-block bg-login-image" style={{
-                background: `url("${this.props.dog || ""}")`
+                background: `url("https://comps.canstockphoto.com/bodybuilder-vector-clipart_csp44627204.jpg")`
               }}></div>
               <div className="col-lg-6">
                 <div className="p-5">
@@ -24,10 +45,10 @@ class Login extends PureComponent {
                   </div>
                   <form className="user">
                     <div className="form-group">
-                      <input type="email" className="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." />
+                      <input type="email" className="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." onChange={this.updateEmail} />
                     </div>
                     <div className="form-group">
-                      <input type="password" className="form-control form-control-user" id="exampleInputPassword" placeholder="Password" />
+                      <input type="password" className="form-control form-control-user" id="exampleInputPassword" placeholder="Password" onChange={this.updatePassword} />
                     </div>
                     <div className="form-group">
                       <div className="custom-control custom-checkbox small">
@@ -61,7 +82,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   console.log("dispatch", dispatch)
   return {
-    onRequestLogin: () => dispatch({ type: "LOGIN_API_CALL_REQUEST" })
+    onRequestLogin: (__state) => dispatch({ type: "LOGIN_API_CALL_REQUEST", data: __state })
   };
 };
 

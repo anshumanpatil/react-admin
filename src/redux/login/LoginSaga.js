@@ -12,21 +12,24 @@ export function* LoginSaga() {
 }
 
 // function that makes the api request and returns a Promise for response
-function fetchDog() {
+function fetchDog(data) {
   return axios({
-    method: "get",
-    url: "https://dog.ceo/api/breeds/image/random"
+    method: "post",
+    url: "http://localhost:4000/users",
+    data
   });
 }
 
 // worker saga: makes the api call when watcher saga sees the action
-function* workerSaga() {
+function* workerSaga(state) {
   try {
-    const response = yield call(fetchDog);
-    const dog = response.data.message;
+    const response = yield call(fetchDog, state.data);
+
+    const success = response.data.success;
+    console.log("response.dataresponse.dataresponse.dataresponse.dataresponse.data", success)
 
     // dispatch a success action to the store with the new dog
-    yield put({ type: LOGIN_API_CALL_SUCCESS, dog });
+    yield put({ type: LOGIN_API_CALL_SUCCESS, success });
   
   } catch (error) {
     // dispatch a failure action to the store with the error
