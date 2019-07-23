@@ -33,6 +33,6 @@ function* workerSaga(state) {
   
   } catch (error) {
     // dispatch a failure action to the store with the error
-    yield put({ type: LOGIN_API_CALL_FAILURE, error });
+    yield put({ type: LOGIN_API_CALL_FAILURE, error: "Not Authorised" });
   }
 }

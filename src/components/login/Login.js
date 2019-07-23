@@ -25,18 +25,23 @@ class Login extends PureComponent {
     this.props.onRequestLogin(this.state);
   }
 
+  componentDidUpdate(){
+    const { fetching, success, error } = this.props;
+    console.log("[LOGIN] [componentDidUpdate] fetching, success, error", fetching, success, error);
+    if(success){
+      this.props.history.push('/dashboard')
+    }
+  }
+
   render() {
     const { fetching, success, onRequestLogin, error } = this.props;
-    // if(success){
-
-    // }
     return (
       <div className="col-xl-10 col-lg-12 col-md-9">
         <div className="card o-hidden border-0 shadow-lg my-5">
           <div className="card-body p-0">
             <div className="row">
               <div className="col-lg-6 d-none d-lg-block bg-login-image" style={{
-                background: `url("https://comps.canstockphoto.com/bodybuilder-vector-clipart_csp44627204.jpg")`
+                background: `url("https://s3.amazonaws.com/newpyl/pyl_showcase/2a42_1513174567121317.jpg")`
               }}></div>
               <div className="col-lg-6">
                 <div className="p-5">
@@ -56,6 +61,7 @@ class Login extends PureComponent {
                         <label className="custom-control-label" htmlFor="customCheck">Remember Me</label>
                       </div>
                     </div>
+                    <span style={{color:'red'}}>{error || ""}</span>
                     <button type="button" className="btn btn-primary btn-user btn-block" onClick={() => this.clickLogin()}>Login</button>
                   </form>
                   <hr />
