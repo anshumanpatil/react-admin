@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
-import { Route, Switch } from 'react-router-dom';
+
 import FooterComponent from '../../components/footer/FooterComponent'
 import Topbar from '../../components/topbar/Topbar'
+import PagesRoutes from '../../routes/PagesRoutes'
 
-import HomeConnected from '../../components/homeConnected/HomeConnected'
 
 class Content extends PureComponent {
     render() {
@@ -12,9 +12,7 @@ class Content extends PureComponent {
                 <div id="content">
                     <Topbar/>
                     <div className="container-fluid">
-                        <Switch>
-                            <Route exact path="/dashboard/" component={HomeConnected} />
-                        </Switch>
+                        <PagesRoutes/>
                     </div>
                 </div>
                 <FooterComponent/>

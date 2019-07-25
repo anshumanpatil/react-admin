@@ -1,13 +1,12 @@
 import React, { PureComponent } from 'react';
 import Heading from './heading/Heading'
 import Interface from './interface/Interface'
-import Addons from './addons/Addons'
 class Sidebar extends PureComponent {
     render() {
         return (
             <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-                <Heading/>
+                <Heading title="Health Builder"/>
 
                 <hr className="sidebar-divider my-0" />
 
@@ -19,17 +18,18 @@ class Sidebar extends PureComponent {
 
                 <hr className="sidebar-divider" />
 
-                <Interface/>
+                <Interface data={{
+                    blockTitle : "Interface",
+                    dropDownTitle : "Components",
+                    innerTitle : "Custom Components",
+                    iconClass : "fas fa-fw fa-cog",
+                    list : [
+                        {title: "Buttons", to: "/dashboard/buttons"},
+                        {title: "Cards", to: "/dashboard/cards"}
+                    ]
+                }}/>
 
                 <hr className="sidebar-divider" />
-
-                <Addons/>
-
-                <hr className="sidebar-divider d-none d-md-block" />
-
-                <div className="text-center d-none d-md-inline">
-                    <button className="rounded-circle border-0" id="sidebarToggle"></button>
-                </div>
 
             </ul>
         );
