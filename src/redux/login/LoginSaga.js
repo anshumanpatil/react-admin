@@ -26,10 +26,10 @@ function* workerSaga(state) {
     const response = yield call(fetchDog, state.data);
 
     const success = response.data.success;
-    console.log("response.dataresponse.dataresponse.dataresponse.dataresponse.data", success)
+    console.log("[workerSaga] response.data", response.data)
 
     // dispatch a success action to the store with the new dog
-    yield put({ type: LOGIN_API_CALL_SUCCESS, success });
+    yield put({ type: LOGIN_API_CALL_SUCCESS, success, user: response.data.user });
   
   } catch (error) {
     // dispatch a failure action to the store with the error

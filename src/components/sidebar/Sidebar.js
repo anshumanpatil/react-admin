@@ -5,9 +5,7 @@ class Sidebar extends PureComponent {
     render() {
         return (
             <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
                 <Heading title="Health Builder"/>
-
                 <hr className="sidebar-divider my-0" />
 
                 <li className="nav-item">
@@ -19,13 +17,13 @@ class Sidebar extends PureComponent {
                 <hr className="sidebar-divider" />
 
                 <Interface data={{
-                    blockTitle : "Interface",
-                    dropDownTitle : "Components",
-                    innerTitle : "Custom Components",
+                    blockTitle : "Member area",
+                    dropDownTitle : "Members",
+                    innerTitle : "Member Register",
                     iconClass : "fas fa-fw fa-cog",
                     list : [
-                        {title: "Buttons", to: "/dashboard/buttons"},
-                        {title: "Cards", to: "/dashboard/cards"}
+                        {title: "Add Member", to: "/dashboard/buttons"},
+                        {title: "Delete Member", to: "/dashboard/cards"}
                     ]
                 }}/>
 

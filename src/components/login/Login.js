@@ -27,7 +27,7 @@ class Login extends PureComponent {
 
   componentDidUpdate(){
     const { fetching, success, error } = this.props;
-    console.log("[LOGIN] [componentDidUpdate] fetching, success, error", fetching, success, error);
+    console.log("[LOGIN] [componentDidUpdate] this.props", this.props);
     if(success){
       this.props.history.push('/dashboard')
     }

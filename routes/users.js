@@ -10,8 +10,12 @@ router.post('/', function(req, res, next) {
     success = true;
     status = 200;
   }
+
   res.status(status).json({
-    success
+    success,
+    user: {
+      token : "demo"
+    }
   });
 });
 

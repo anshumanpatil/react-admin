@@ -4,7 +4,6 @@ import FooterComponent from '../../components/footer/FooterComponent'
 import Topbar from '../../components/topbar/Topbar'
 import PagesRoutes from '../../routes/PagesRoutes'
 
-
 class Content extends PureComponent {
     render() {
         return (
@@ -15,7 +14,7 @@ class Content extends PureComponent {
                         <PagesRoutes/>
                     </div>
                 </div>
-                <FooterComponent/>
+                <FooterComponent copyright="Healthbuilder.com 2019"/>
             </div>
         );
 
