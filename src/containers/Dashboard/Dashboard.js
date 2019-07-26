@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import HomeConnected from '../../components/homeConnected/HomeConnected'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Content from '../Content/Content'
+import Auth from '../../services/Auth'
 class Dashboard extends PureComponent {
     componentDidMount() {
+        console.log("[Dashboard] [componentDidMount] Auth", Auth)
         const { success, user } = this.props;
         if (!success) {
             this.props.history.push('/');

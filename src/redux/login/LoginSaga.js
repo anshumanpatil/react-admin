@@ -4,7 +4,7 @@ import {
   LOGIN_API_CALL_FAILURE
 } from './constants'
 import { takeLatest, call, put } from "redux-saga/effects";
-import axios from "axios";
+import API from '../../services/API'
 
 // watcher saga: watches for actions dispatched to the store, starts worker saga
 export function* LoginSaga() {
@@ -12,23 +12,19 @@ export function* LoginSaga() {
 }
 
 // function that makes the api request and returns a Promise for response
-function fetchDog(data) {
-  return axios({
-    method: "post",
-    url: "http://localhost:4000/users",
-    data
-  });
+function loginCall(data) {
+  return API.loginCall(data)
 }
 
 // worker saga: makes the api call when watcher saga sees the action
 function* workerSaga(state) {
   try {
-    const response = yield call(fetchDog, state.data);
+    const response = yield call(loginCall, state.data);
 
     const success = response.data.success;
     console.log("[workerSaga] response.data", response.data)
 
-    // dispatch a success action to the store with the new dog
+    // dispatch a success action to the store with the user
     yield put({ type: LOGIN_API_CALL_SUCCESS, success, user: response.data.user });
   
   } catch (error) {

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from "react-redux";
+import Auth from '../../services/Auth'
 class Login extends PureComponent {
 
   constructor(props) {
@@ -27,6 +28,7 @@ class Login extends PureComponent {
 
   componentDidUpdate(){
     const { fetching, success, error } = this.props;
+    Auth.loggedin = success;
     console.log("[LOGIN] [componentDidUpdate] this.props", this.props);
     if(success){
       this.props.history.push('/dashboard')

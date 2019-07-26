@@ -7,6 +7,9 @@ import Forgot from '../components/forgot/Forgot'
 import Dashboard from './Dashboard/Dashboard'
 
 class App extends PureComponent {
+  componentDidMount() {
+    console.log("[App] [componentDidMount] Auth", process.env)
+}
   render() {
     return (
       <div className="container" id="AppComponent">
