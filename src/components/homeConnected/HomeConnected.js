@@ -1,9 +1,19 @@
-import React, { PureComponent } from 'react';
-
+import React, { PureComponent, Fragment } from 'react';
+import FormCard from '../formCard/FormCard'
 class HomeConnected extends PureComponent {
   render() {
     return (
-        <h1 className="h3 mb-4 text-gray-800">Here all!</h1>
+      <div class="row">
+          <FormCard title="One"/>
+          <FormCard title="One"/>
+          <FormCard title="One"/>
+          <FormCard title="One"/>
+          <FormCard title="One"/>
+          <FormCard title="One"/>
+          <FormCard title="One"/>
+          <FormCard title="One"/>
+          <FormCard title="One"/>
+      </div>
       );
 
   }

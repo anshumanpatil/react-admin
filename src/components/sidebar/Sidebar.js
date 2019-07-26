@@ -22,8 +22,8 @@ class Sidebar extends PureComponent {
                     innerTitle : "Member Register",
                     iconClass : "fas fa-fw fa-cog",
                     list : [
-                        {title: "Add Member", to: "/dashboard/buttons"},
-                        {title: "Delete Member", to: "/dashboard/cards"}
+                        {title: "Forms", to: "/dashboard/buttons"},
+                        {title: "Edit Forms", to: "/dashboard/cards"}
                     ]
                 }}/>
 
