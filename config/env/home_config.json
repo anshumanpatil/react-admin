@@ -1,0 +1,28 @@
+{
+  "app": {
+    "port": 5000
+  },
+  "database": {
+    "username": "root",
+    "password": "root",
+    "database": "api_development",
+    "host": "localhost",
+    "port" : "8889",
+    "dialect": "mysql",
+    "logging" : false,
+    "pool": {
+        "min": 5,
+        "max": 10,
+        "acquire": 30000,
+        "idle": 60000
+    }
+  },
+  "mongo": {
+    "url": "mongodb://localhost/users123"
+  },
+  "jwt": {
+    "secret": "placeholder-secretKey",
+    "algorithm": "HS256",
+    "secret_separator": ":"
+  }
+}
