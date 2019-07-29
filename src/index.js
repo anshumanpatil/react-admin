@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './sb-admin-2.css';
+import './admin.css';
 
 import App from './containers/App';
 import * as serviceWorker from './helpers/serviceWorker';

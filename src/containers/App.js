@@ -8,8 +8,14 @@ import Dashboard from './Dashboard/Dashboard'
 
 class App extends PureComponent {
   componentDidMount() {
-    console.log("[App] [componentDidMount] Auth", process.env)
-}
+    window.jQuery("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
+      window.jQuery("body").toggleClass("sidebar-toggled");
+      window.jQuery(".sidebar").toggleClass("toggled");
+      if (window.jQuery(".sidebar").hasClass("toggled")) {
+        window.jQuery('.sidebar .collapse').collapse('hide');
+      };
+    });  
+  }
   render() {
     return (
       <div className="container" id="AppComponent">

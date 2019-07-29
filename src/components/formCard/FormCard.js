@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-const FormCard = ({ title }) => {
+
+
+const FormCard = ({ title, clickListener }) => {
     return (
         <div className="col-xl-3 col-md-6 mb-4">
             <div className="card border-left-info shadow h-100 py-2">
@@ -22,7 +24,7 @@ const FormCard = ({ title }) => {
                             <i className="fas fa-clipboard-list fa-2x text-gray-300"></i>
                         </div>
                     </div>
-                        <button className="btn-success">Fill Form</button>
+                        <button className="btn-success" onClick={() => clickListener()}>Fill Form</button>
                         <button className="btn-success">Submit Form</button>
                 </div>
             </div>
