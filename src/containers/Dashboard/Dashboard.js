@@ -6,13 +6,11 @@ import Content from '../Content/Content'
 import Auth from '../../services/Auth'
 class Dashboard extends PureComponent {
     componentDidMount() {
-        console.log("[Dashboard] [componentDidMount] Auth", Auth)
         const { success, user } = this.props;
-        if (!success) {
+        if (!Auth.getToken()) {
             this.props.history.push('/');
             return;
         }
-        console.log("[Dashboard] [componentDidUpdate] this.props", this.props);
         window.jQuery("#AppComponent").removeClass("container")
     }
     render() {

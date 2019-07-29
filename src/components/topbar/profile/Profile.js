@@ -1,5 +1,20 @@
 import React, { PureComponent, Fragment } from 'react';
+import { withRouter } from 'react-router'
+
+
 class Profile extends PureComponent {
+
+    constructor(props) {
+        super(props);
+        this.onLogOut = this.onLogOut.bind(this);
+    }
+
+    onLogOut() {
+        const { history } = this.props;
+        localStorage.removeItem("token")
+        window.location.href = "/"; // to reset all data
+    }
+
     render() {
         return (
             <Fragment>
@@ -29,8 +44,25 @@ class Profile extends PureComponent {
                         </a>
                     </div>
                 </li>
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary" onClick={() => this.onLogOut()}>Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </Fragment>
         );
     }
 }
-export default Profile;
+export default withRouter(Profile);

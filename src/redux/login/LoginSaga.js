@@ -5,6 +5,7 @@ import {
 } from './constants'
 import { takeLatest, call, put } from "redux-saga/effects";
 import API from '../../services/API'
+import Auth from '../../services/Auth'
 
 // watcher saga: watches for actions dispatched to the store, starts worker saga
 export function* LoginSaga() {
@@ -23,7 +24,9 @@ function* workerSaga(state) {
 
     const success = response.data.success;
     console.log("[workerSaga] response.data", response.data)
-
+    if(success){
+      Auth.setToken(response.data.token);
+    }
     // dispatch a success action to the store with the user
     yield put({ type: LOGIN_API_CALL_SUCCESS, success, user: response.data.user });
   

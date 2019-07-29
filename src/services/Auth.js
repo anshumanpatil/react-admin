@@ -8,6 +8,15 @@ class Auth {
         
         this.loggedin = false;
 
+        this.setToken = (token) => {
+            localStorage.setItem('token', token);
+            this.loggedin = true;
+        }
+    
+        this.getToken = () => {
+            return localStorage.getItem('token');
+        }
+
         return this;
     }
 }

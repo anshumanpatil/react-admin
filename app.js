@@ -72,7 +72,7 @@ _.each(swaggerPaths, (obj) => {
 		swaggerObject[key] = _.extend(swaggerObject[key],__obj);
 	})
 })
-console.log()
+
 swaggerDocument.paths = swaggerObject;
 swaggerDocument.info = package.applicationInfo;
 

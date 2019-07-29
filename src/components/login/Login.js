@@ -9,17 +9,17 @@ class Login extends PureComponent {
     this.updatePassword = this.updatePassword.bind(this);
 
     this.state = {
-      email: '',
-      password: ''
+      user_email: '',
+      user_password: ''
     }
   }
 
   updateEmail(event) {
-    this.setState({ email: event.target.value })
+    this.setState({ user_email: event.target.value })
   }
 
   updatePassword(event) {
-    this.setState({ password: event.target.value })
+    this.setState({ user_password: event.target.value })
   }
 
   clickLogin = () => {
@@ -30,7 +30,7 @@ class Login extends PureComponent {
     const { fetching, success, error } = this.props;
     Auth.loggedin = success;
     console.log("[LOGIN] [componentDidUpdate] this.props", this.props);
-    if(success){
+    if(Auth.getToken() && success){
       this.props.history.push('/dashboard')
     }
   }
