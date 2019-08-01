@@ -16,7 +16,7 @@
     "jquery": "3.4.1",
     "jquery.easing": "^1.4.1",
     "jsonwebtoken": "^8.3.0",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.15",
     "module-alias": "^2.1.0",
     "moment": "^2.22.2",
     "mongoose": "^5.3.8",

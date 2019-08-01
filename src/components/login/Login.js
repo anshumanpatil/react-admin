@@ -29,7 +29,6 @@ class Login extends PureComponent {
   componentDidUpdate(){
     const { fetching, success, error } = this.props;
     Auth.loggedin = success;
-    console.log("[LOGIN] [componentDidUpdate] this.props", this.props);
     if(Auth.getToken() && success){
       this.props.history.push('/dashboard')
     }

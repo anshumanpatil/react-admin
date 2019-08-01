@@ -6,6 +6,7 @@ import {
 import { takeLatest, call, put } from "redux-saga/effects";
 import API from '../../services/API'
 import Auth from '../../services/Auth'
+import _ from 'lodash';
 
 // watcher saga: watches for actions dispatched to the store, starts worker saga
 export function* LoginSaga() {
@@ -23,7 +24,6 @@ function* workerSaga(state) {
     const response = yield call(loginCall, state.data);
 
     const success = response.data.success;
-    console.log("[workerSaga] response.data", response.data)
     if(success){
       Auth.setToken(response.data.token);
     }
@@ -31,7 +31,8 @@ function* workerSaga(state) {
     yield put({ type: LOGIN_API_CALL_SUCCESS, success, user: response.data.user });
   
   } catch (error) {
+    let __error = _.has(error, 'response.data') ? error.response.data : {};
     // dispatch a failure action to the store with the error
-    yield put({ type: LOGIN_API_CALL_FAILURE, error: "Not Authorised" });
+    yield put({ type: LOGIN_API_CALL_FAILURE, error: __error.error });
   }
 }
