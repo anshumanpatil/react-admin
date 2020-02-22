@@ -2,21 +2,6 @@
   "app": {
     "port": 5000
   },
-  "database": {
-    "username": "root",
-    "password": "root",
-    "database": "api_development",
-    "host": "localhost",
-    "port" : "8889",
-    "dialect": "mysql",
-    "logging" : false,
-    "pool": {
-        "min": 5,
-        "max": 10,
-        "acquire": 30000,
-        "idle": 60000
-    }
-  },
   "mongo": {
     "url": "mongodb://anshumanpradippatil1506:yajju1506@ds149998.mlab.com:49998/nivalocal"
   },

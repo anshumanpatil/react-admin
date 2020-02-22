@@ -3,7 +3,7 @@ module.exports = {
     '/profile': {
         post: {
             method: 'postProfile',
-            public: false,
+            public: true,
             schema : {
                 body: {
                     name: Joi.string().allow('').optional(),
@@ -110,7 +110,7 @@ module.exports = {
         },
         put: {
             method: 'updateProfile',
-            public: false,
+            public: true,
             schema : {},
             swagger: {
                 "tags": [
@@ -204,7 +204,7 @@ module.exports = {
         },
         get: {
             method: 'getProfile',
-            public: false,
+            public: true,
             schema : {},
             swagger: {
                 "tags": [
